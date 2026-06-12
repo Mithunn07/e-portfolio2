@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Alex Morgan | Creative Tech E-Portfolio</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body data-theme="dark">
+
+  <!-- Canvas for Three.js 3D Background -->
+  <canvas id="canvas-3d"></canvas>
+
+  <!-- Glow Background Effect -->
+  <div class="hero-glow"></div>
+  <div class="grid-bg"></div>
+
+  <!-- Header & Navigation -->
+  <header id="main-header">
+    <div class="container nav-container">
+      <a href="#" class="logo" id="logo-text">Alex.M</a>
+      <nav>
+        <ul>
+          <li><a href="#about" class="active">About</a></li>
+          <li><a href="#achievements">Achievements</a></li>
+          <li><a href="#github-activity">GitHub</a></li>
+          <li><a href="#documents">Documents</a></li>
+        </ul>
+      </nav>
+      <div class="nav-actions">
+        <!-- Theme Toggle -->
+        <button id="theme-toggle" class="btn-circle" title="Toggle Theme" aria-label="Toggle Theme">
+          <!-- Sun Icon (shown in dark theme) -->
+          <svg class="sun-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
+            fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="4"></circle>
+            <path
+              d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41">
+            </path>
+          </svg>
+          <!-- Moon Icon (shown in light theme) -->
+          <svg class="moon-icon" style="display: none;" xmlns="http://www.w3.org/2000/svg" width="20" height="20"
+            viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+            stroke-linejoin="round">
+            <path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"></path>
+          </svg>
+        </button>
+        <!-- Admin Toggle Button -->
+        <button id="admin-toggle" class="btn btn-primary">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
+            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path
+              d="M12.22 2h-.44a2 2 0 0 0-2 2v.18a2 2 0 0 1-1 1.73l-.43.25a2 2 0 0 1-2 0l-.15-.08a2 2 0 0 0-2.73.73l-.22.38a2 2 0 0 0 .73 2.73l.15.1a2 2 0 0 1 1 1.72v.51a2 2 0 0 1-1 1.74l-.15.09a2 2 0 0 0-.73 2.73l.22.38a2 2 0 0 0 2.73.73l.15-.08a2 2 0 0 1 2 0l.43.25a2 2 0 0 1 1 1.73V20a2 2 0 0 0 2 2h.44a2 2 0 0 0 2-2v-.18a2 2 0 0 1 1-1.73l.43-.25a2 2 0 0 1 2 0l.15.08a2 2 0 0 0 2.73-.73l.22-.39a2 2 0 0 0-.73-2.73l-.15-.08a2 2 0 0 1-1-1.74v-.5a2 2 0 0 1 1-1.74l.15-.1a2 2 0 0 0 .73-2.73l-.22-.38a2 2 0 0 0-2.73-.73l-.15.08a2 2 0 0 1-2 0l-.43-.25a2 2 0 0 1-1-1.73V4a2 2 0 0 0-2-2z">
+            </path>
+            <circle cx="12" cy="12" r="3"></circle>
+          </svg>
+          Manage Portfolio
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- About Me / Hero Section -->
+  <section id="about" class="hero">
+    <div class="container about-grid">
+      <div class="about-text">
+        <div class="about-title" id="profile-title-tag">Creative Technologist</div>
+        <h1 id="profile-name">Alex <span>Morgan</span></h1>
+        <p class="about-bio" id="profile-bio">
+          I design and build immersive digital experiences that live at the intersection of aesthetic art and
+          high-fidelity code.
+        </p>
+
+        <div class="skills-container">
+          <div class="skills-title">Technical Expertise</div>
+          <div class="skills-list" id="profile-skills-container">
+            <!-- Populated dynamically -->
+          </div>
+        </div>
+
+        <div class="social-links" id="profile-socials">
+          <!-- Populated dynamically -->
+        </div>
+      </div>
+
+      <div class="about-media">
+        <div class="profile-card">
+          <div class="profile-img-wrap">
+            <img id="profile-avatar" src="" alt="Profile Avatar">
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Achievements Section -->
+  <section id="achievements">
+    <div class="container">
+      <div class="section-header">
+        <h2>Key Achievements</h2>
+        <p>Milestones, design awards, and engineering projects I have led or contributed to throughout my career.</p>
+      </div>
+      <div class="achievements-grid" id="achievements-container">
+        <!-- Populated dynamically -->
+      </div>
+    </div>
+  </section>
+
+  <!-- GitHub Activity Section -->
+  <section id="github-activity">
+    <div class="container">
+      <div class="section-header">
+        <h2>GitHub Activity</h2>
+        <p>Open-source contributions and development activity tracked dynamically.</p>
+      </div>
+      
+      <div class="github-card">
+        <div class="github-header">
+          <div class="github-profile-info">
+            <svg class="github-icon" viewBox="0 0 24 24" width="22" height="22" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"></path>
+              <path d="M9 18c-4.51 2-5-2-7-2"></path>
+            </svg>
+            <span id="github-username-display">@alexmorgan</span>
+            <button id="edit-github-username-btn" class="btn-edit-small" title="Link GitHub Account" aria-label="Link GitHub Account">
+              <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M12 20h9"></path>
+                <path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4Z"></path>
+              </svg>
+            </button>
+          </div>
+          <div class="github-stats-summary">
+            <div class="github-stat-item">
+              <span class="stat-value" id="github-total-contrib">0</span>
+              <span class="stat-label">Total Contributions</span>
+            </div>
+            <div class="github-stat-item">
+              <span class="stat-value" id="github-longest-streak">0 days</span>
+              <span class="stat-label">Longest Streak</span>
+            </div>
+            <div class="github-stat-item">
+              <span class="stat-value" id="github-current-streak">0 days</span>
+              <span class="stat-label">Current Streak</span>
+            </div>
+          </div>
+        </div>
+        
+        <div class="github-graph-outer">
+          <div class="github-graph-scroll">
+            <div class="github-months" id="github-months-row"></div>
+            <div class="github-graph-grid-wrapper">
+              <div class="github-days-labels">
+                <span>Mon</span>
+                <span>Wed</span>
+                <span>Fri</span>
+              </div>
+              <div class="github-grid" id="github-contribution-grid"></div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="github-footer">
+          <div class="github-legend">
+            <span>Less</span>
+            <div class="legend-box level-0"></div>
+            <div class="legend-box level-1"></div>
+            <div class="legend-box level-2"></div>
+            <div class="legend-box level-3"></div>
+            <div class="legend-box level-4"></div>
+            <span>More</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Documents Section -->
+  <section id="documents">
+    <div class="container">
+      <div class="section-header">
+        <h2>Documents & Assets</h2>
+        <p>Download my professional resume, case studies, academic transcripts, and technical publications.</p>
+      </div>
+      <div class="docs-list" id="documents-container">
+        <!-- Populated dynamically -->
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <p>&copy; 2026 <span id="footer-name">Alex Morgan</span>. Built with Vanilla Web Tech. Powered by Local Browser DB.</p>
+    </div>
+  </footer>
+
+  <!-- Toast Notification System -->
+  <div id="toast-container" class="toast-container"></div>
+
+  <!-- Admin Panel Drawer (Overlay) -->
+  <div id="admin-overlay" class="admin-overlay">
+    <div class="admin-drawer">
+      <div class="admin-header">
+        <div class="admin-title-wrap">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <rect width="18" height="18" x="3" y="3" rx="2"></rect>
+            <path d="M21 9H3M21 15H3M12 3v18"></path>
+          </svg>
+          <h3>Dashboard</h3>
+        </div>
+        <button id="admin-close" class="btn-circle" title="Close Dashboard">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M18 6 6 18M6 6l12 12"></path>
+          </svg>
+        </button>
+      </div>
+
+      <div class="admin-tabs">
+        <button class="admin-tab active" data-pane="pane-profile">About Me</button>
+        <button class="admin-tab" data-pane="pane-achievements">Achievements</button>
+        <button class="admin-tab" data-pane="pane-documents">Documents</button>
+      </div>
+
+      <div class="admin-content">
+        <!-- About Me Pane -->
+        <div id="pane-profile" class="admin-pane active">
+          <form id="form-profile">
+            <div class="form-group">
+              <label for="input-name">Name</label>
+              <input type="text" id="input-name" class="form-control" required placeholder="e.g. Alex Morgan">
+            </div>
+            <div class="form-group">
+              <label for="input-title">Subtitle / Professional Title</label>
+              <input type="text" id="input-title" class="form-control" required
+                placeholder="e.g. Creative Technologist">
+            </div>
+            <div class="form-group">
+              <label for="input-bio">Bio / Description</label>
+              <textarea id="input-bio" class="form-control" rows="4" required
+                placeholder="Describe your career, passion, and background..."></textarea>
+            </div>
+            <div class="form-group">
+              <label for="input-skills">Skills (separated by commas)</label>
+              <input type="text" id="input-skills" class="form-control"
+                placeholder="e.g. HTML5, CSS3, JavaScript, WebGL">
+            </div>
+            <div class="form-group">
+              <label for="input-bot-greeting">AI Chatbot Greeting Message</label>
+              <textarea id="input-bot-greeting" class="form-control" rows="2" placeholder="Greeting message shown when chatbot is opened..."></textarea>
+            </div>
+            <div class="form-group">
+              <label>Profile Avatar</label>
+              <div class="file-upload-zone" id="avatar-upload-zone">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                  stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M17 8l-5-5-5 5M12 3v12"></path>
+                </svg>
+                <span>Drag & Drop Avatar Image or <strong>Browse</strong></span>
+                <input type="file" id="input-avatar-file" accept="image/*">
+              </div>
+              <div class="file-preview" id="avatar-preview-box">
+                <img id="avatar-preview-img" src="" alt="Avatar Preview">
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="input-github">GitHub Link</label>
+              <input type="url" id="input-github" class="form-control" placeholder="e.g. https://github.com/username">
+            </div>
+            <div class="form-group">
+              <label for="input-github-username">GitHub Username (for activity graph)</label>
+              <input type="text" id="input-github-username" class="form-control" placeholder="e.g. alexmorgan">
+            </div>
+            <div class="form-group">
+              <label for="input-linkedin">LinkedIn Link</label>
+              <input type="url" id="input-linkedin" class="form-control"
+                placeholder="e.g. https://linkedin.com/in/username">
+            </div>
+            <div class="form-group">
+              <label for="input-twitter">Twitter / X Link</label>
+              <input type="url" id="input-twitter" class="form-control" placeholder="e.g. https://twitter.com/username">
+            </div>
+            <button type="submit" class="btn btn-primary" style="width:100%; margin-top: 10px;">Save Profile</button>
+          </form>
+        </div>
+
+        <!-- Achievements Pane -->
+        <div id="pane-achievements" class="admin-pane">
+          <form id="form-achievement">
+            <input type="hidden" id="input-ach-id">
+            <div class="form-group">
+              <label for="input-ach-title">Achievement Title</label>
+              <input type="text" id="input-ach-title" class="form-control" required
+                placeholder="e.g. Best Creative Frontend Design">
+            </div>
+            <div class="form-group">
+              <label for="input-ach-date">Date Achieved</label>
+              <input type="date" id="input-ach-date" class="form-control" required>
+            </div>
+            <div class="form-group">
+              <label for="input-ach-desc">Description</label>
+              <textarea id="input-ach-desc" class="form-control" rows="3" required
+                placeholder="Explain your achievement in detail..."></textarea>
+            </div>
+            <div class="form-group">
+              <label>Cover Image</label>
+              <div class="file-upload-zone" id="ach-upload-zone">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                  stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M17 8l-5-5-5 5M12 3v12"></path>
+                </svg>
+                <span>Drag & Drop Cover Image or <strong>Browse</strong></span>
+                <input type="file" id="input-ach-file" accept="image/*">
+              </div>
+              <div class="file-preview" id="ach-preview-box">
+                <img id="ach-preview-img" src="" alt="Achievement Preview">
+              </div>
+            </div>
+            <div style="display: flex; gap: 10px; margin-top: 10px;">
+              <button type="submit" id="btn-ach-submit" class="btn btn-primary" style="flex: 1;">Add
+                Achievement</button>
+              <button type="button" id="btn-ach-cancel" class="btn btn-secondary" style="display: none;">Cancel</button>
+            </div>
+          </form>
+
+          <hr style="border: 0; border-top: 1px solid var(--border-color); margin: 30px 0 20px 0;">
+
+          <h4>Existing Achievements</h4>
+          <div class="admin-items-list" id="admin-achievements-list">
+            <!-- Achievements list for edit/delete -->
+          </div>
+        </div>
+
+        <!-- Documents Pane -->
+        <div id="pane-documents" class="admin-pane">
+          <form id="form-document">
+            <div class="form-group">
+              <label>Upload Document (PDF / Images / Docs)</label>
+              <div class="file-upload-zone" id="doc-upload-zone">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                  stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M17 8l-5-5-5 5M12 3v12"></path>
+                </svg>
+                <span>Drag & Drop File or <strong>Browse</strong></span>
+                <input type="file" id="input-doc-file"
+                  accept="image/*,application/pdf,text/plain,application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document">
+              </div>
+              <div id="doc-file-info"
+                style="margin-top:10px; font-size:13px; text-align:center; display:none; color: var(--accent-primary);">
+                Selected: <span id="doc-selected-name" style="font-weight:600;"></span>
+              </div>
+            </div>
+            <button type="submit" id="btn-doc-submit" class="btn btn-primary" style="width: 100%; display: none;">Upload
+              File</button>
+          </form>
+
+          <hr style="border: 0; border-top: 1px solid var(--border-color); margin: 30px 0 20px 0;">
+
+          <h4>Uploaded Files</h4>
+          <div class="admin-items-list" id="admin-documents-list">
+            <!-- Documents list for deletion -->
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- AI Chatbot UI Widget -->
+  <div id="chatbot-widget" class="chatbot-widget">
+    <!-- Chatbot Toggle Button -->
+    <button id="chatbot-trigger" class="chatbot-trigger" aria-label="Open Chatbot" title="Chat with AI Assistant">
+      <span class="chatbot-notification-dot"></span>
+      <!-- Open Chat Icon -->
+      <svg class="chat-open-icon" xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+      </svg>
+      <!-- Close Chat Icon -->
+      <svg class="chat-close-icon" style="display: none;" xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+        <line x1="18" y1="6" x2="6" y2="18"></line>
+        <line x1="6" y1="6" x2="18" y2="18"></line>
+      </svg>
+    </button>
+
+    <!-- Chatbot Window Panel -->
+    <div id="chatbot-window" class="chatbot-window">
+      <div class="chatbot-header">
+        <div class="chatbot-header-info">
+          <div class="chatbot-avatar-wrap">
+            <img id="chatbot-avatar" src="" alt="Bot Avatar">
+            <span class="chatbot-status-dot online"></span>
+          </div>
+          <div class="chatbot-header-text">
+            <h4 id="chatbot-title">Alex Morgan AI</h4>
+            <p>Portfolio Assistant</p>
+          </div>
+        </div>
+        <button id="chatbot-close" class="chatbot-header-close" title="Minimize Chat">&times;</button>
+      </div>
+      
+      <div id="chatbot-messages" class="chatbot-messages">
+        <!-- Messages dynamically rendered -->
+      </div>
+      
+      <!-- Suggestion quick chips -->
+      <div id="chatbot-suggestions" class="chatbot-suggestions">
+        <!-- Suggestions dynamically rendered -->
+      </div>
+      
+      <form id="chatbot-form" class="chatbot-form">
+        <input type="text" id="chatbot-input" class="chatbot-input" placeholder="Ask me about skills, awards..." autocomplete="off" required>
+        <button type="submit" class="chatbot-send-btn" aria-label="Send Message" title="Send Message">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="22" y1="2" x2="11" y2="13"></line>
+            <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
+          </svg>
+        </button>
+      </form>
+    </div>
+  </div>
+
+  <!-- GitHub Username Link Modal -->
+  <div id="github-modal" class="modal-overlay">
+    <div class="modal-card">
+      <div class="modal-header">
+        <h3 style="font-family: var(--font-headings); font-weight: 700; font-size: 18px;">Link GitHub Account</h3>
+        <button id="github-modal-close" class="btn-circle" style="width:30px; height:30px;" title="Close">&times;</button>
+      </div>
+      <p style="font-size: 13px; color: var(--text-secondary); margin-bottom: 16px;">
+        Enter your GitHub username to connect your active contribution graph to this website in real-time.
+      </p>
+      <div class="form-group">
+        <label for="modal-github-username">GitHub Username</label>
+        <input type="text" id="modal-github-username" class="form-control" placeholder="e.g. torvalds" required>
+      </div>
+      <div class="modal-actions">
+        <button id="github-modal-cancel" class="btn btn-secondary">Cancel</button>
+        <button id="github-modal-save" class="btn btn-primary">Save & Connect</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Three.js for 3D Interactive WebGL background -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+
+  <!-- DB scripts and Main Application logic -->
+  <script src="db.js"></script>
+  <script src="app.js"></script>
+</body>
+
+</html>
